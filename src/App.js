@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import CardList from './CardList';
 import SearchBar from './SearchBar';
-import robotData from './robots';
+import Scroll from './Scroll';
 
 
 class App extends React.Component {
@@ -9,13 +9,26 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            robots: robotData,
+            robots: [],
             searchfield: ''
         }
     }
 
-    onSearchChange = (e)=>{
-        this.setState({searchfield: e.target.value});
+    onSearchChange = (e) => {
+        this.setState({ searchfield: e.target.value });
+    }
+
+    componentDidMount() {
+
+        fetch("https://jsonplaceholder.typicode.com/users")
+            .then((response) => {
+                console.log(response);
+                return response.json();
+            })
+            .then((users) => {
+                console.log(users);
+                this.setState({ robots: users });
+            })
     }
 
     render() {
@@ -28,7 +41,9 @@ class App extends React.Component {
             <div className='tc'>
                 <SearchBar searchChange={this.onSearchChange} />
                 <h1>Robo Friends</h1>
-                <CardList robots={filtered} />
+                <Scroll>
+                    <CardList robots={filtered} />
+                </Scroll>
             </div>
         )
     }
