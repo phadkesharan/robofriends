@@ -4,11 +4,6 @@ const robotData = [{
     "username": "hcazereau0",
     "email": "hbarrowcliff0@pcworld.com"
   }, {
-    "id": 2,
-    "name": "Hermon",
-    "username": "hsharpless1",
-    "email": "hyuryaev1@posterous.com"
-  }, {
     "id": 3,
     "name": "Siffre",
     "username": "stansey2",

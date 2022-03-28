@@ -7,7 +7,7 @@ export default function Card({id, name, username, email}) {
         <img src={`https://robohash.org/${id}`} alt="robots"/>
         <div>
             <h2>{id}  {name}</h2>
-            <h2>{username}</h2>
+            <h3>{username}</h3>
             <p>{email}</p>
         </div>
     </div>
